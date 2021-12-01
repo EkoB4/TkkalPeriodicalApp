@@ -7,17 +7,28 @@
 
 import SwiftUI
 
-struct PeriodicalView: View {
+struct FirstPeriodical: View {
     var body: some View {
+        ZStack{
+            NavigationView{
+            GeometryReader{ img in
+                
         Image("TestImage")
             .resizable()
             .scaledToFit()
-            .frame(width: 100, height: 130)
+            .frame(width: img.size.width*1, height: img.size.height*0.2).offset(x:-100,y:20)
+            .background(RoundedRectangle(cornerRadius: 10)
+                            .frame(width: img.size.width*0.3, height: img.size.height*0.25).offset(x:-100,y:25)
+                            .foregroundColor(.white))
+              }
+            }
+        }
     }
 }
 
 struct PeriodicalView_Previews: PreviewProvider {
     static var previews: some View {
-        PeriodicalView()
+        FirstPeriodical()
+            .preferredColorScheme(.dark)
     }
 }
